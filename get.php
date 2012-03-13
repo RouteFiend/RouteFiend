@@ -80,7 +80,7 @@
 		<script src="jquery.js"></script>
 	<script type='text/javascript'>
 			$("a.delete").live("click", function() { 
-			  $(this).parent().remove();
+			  $(this).parent().parent().remove();
 			  return false;
 			})
 	</script>
@@ -112,8 +112,13 @@
 		*/
 		for ($i=0; $i < $count; $i++) { 
 			$jsonurl = "http://maps.googleapis.com/maps/api/geocode/json?address=".$houseNums[$i]."+".urlencode($streets[$i]).",+".urlencode($postcodes[$i])."&sensor=false";
-			$json = file_get_contents($jsonurl,0,null,null);
-			$json_output = json_decode($json);
+			//$json = file_get_contents($jsonurl,0,null,null);
+			$ch = curl_init($jsonurl);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+			$content = curl_exec($ch);
+			curl_close($ch);
+			$json_output = json_decode($content);
 			echo (String) $json_output->results[0]->formatted_address." ".$timeFrom[$i].$periodsFrom[$i]." - ".$timeTo[$i].$periodsTo[$i]."<br>";
 		}
 	}

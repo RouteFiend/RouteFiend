@@ -20,25 +20,39 @@
 	</style>
 	<script src="jquery.js"></script>
 	<script type='text/javascript'>
-		$(function(){
+		$(document).ready(function() {
 			var counter = 1;
 			var limit = 3;
 			var template = $('.entry').clone();
 			var main = $('#main');
-			$('<a>', {
+			var del = $('<a>', {
 			    text: 'delete', 
 			    class: 'delete', 
 			    href: '#'
 			}).appendTo(template);
 
 			$("a.delete").live("click", function() { 
+				if( ($(".entry").length) == 2 ) {
+						$(this).parent().remove();
+						$(main).find(".delete").remove();
+
+				}
+
 			  $(this).parent().remove();
 			  return false;
 			})
 			$('#add').click(function() {
 				main.append(template.clone());
+					if ( ($(".entry").length) == 2 ) {
+					$('.entry').one().first().append($('<a>', {
+					text: 'delete', 
+					class: 'delete', 
+					href: '#'
+					}));
+				}
 				return false;
 			}); 
+
 		})
 	</script>
 </head>
