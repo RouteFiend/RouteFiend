@@ -52,16 +52,13 @@
 			$output .= '<span> Error - <input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"> <br>';
 		}
 		else {
-			$output .= '<input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"value"'.$postcodes[$v].'"> <br>';
+			$output .= '<input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"value="'.$postcodes[$v].'"> <br>';
 		}
 		
 		$output .= genSelect($timeFrom[$v],$periodsFrom[$v],$timeTo[$v],$periodsTo[$v]);
 		$output .= "<a href='#' class='delete'> delete </a>";
 		$output .= "</div>";
 	}
-
-
-
 ?>
 <html>
 <head>
@@ -79,21 +76,39 @@
 	</style>
 		<script src="jquery.js"></script>
 	<script type='text/javascript'>
+			$(document).ready(function() {
+
+				var main = $('#main');
+
 			$("a.delete").live("click", function() { 
-			  $(this).parent().parent().remove();
+				if( ($(".entry").length) == 2 ) {
+						$(this).parent().remove();
+						$(main).find(".delete").remove();
+				}
+			  $(this).parent().remove();
 			  return false;
 			})
+
+			var $clone = $('.temp').clone();
+			$clone.attr('class','entry');
+			$('#add').click(function() {
+				main.append($clone.clone().show());
+			})
+
+
+		})
 	</script>
 </head>
 <body>
-	
+	<div id="main">
 <?php 
 	if (!$valid) {
 		echo "<h1> Error </h1>";
 		echo '<form method="POST" action="get.php">';
 		echo $output;
+		echo "</div>";
 		echo '     <input type="submit">';
-		echo '</form>';
+		echo '     <input id="add" type="button" value="Add another text input">';
 	}
 	else {
 			for ($i=0; $i < $count; $i++) { 
@@ -123,5 +138,13 @@
 		}
 	}
  ?>
+   	<div class = "temp"style="display:none">
+     		<input type="text" name="houseNum[]" size="1"placeholder="number"><br />
+     		<input type="text" name="street[]" size="10"placeholder="street"> <br />
+          <input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"> <br>
+          <?php echo genSelectDefault(); ?>
+          <a href='#' class='delete'> delete </a>
+      </div>
+  </form>
 </body>
-</html$i]
+</html>
