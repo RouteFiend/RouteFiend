@@ -56,7 +56,9 @@
 		}
 		
 		$output .= genSelect($timeFrom[$v],$periodsFrom[$v],$timeTo[$v],$periodsTo[$v]);
-		$output .= "<a href='#' class='delete'> delete </a>";
+		if ($count > 1) {
+			$output .= "<a href='#' class='delete'> delete </a>";
+		}
 		$output .= "</div>";
 	}
 ?>
