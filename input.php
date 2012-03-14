@@ -17,6 +17,9 @@
 		width: 250px;
 		padding: 10px;
 	}
+	form{
+		background:red;
+	}
 	</style>
 	<script src="jquery.js"></script>
 	<script type='text/javascript'>

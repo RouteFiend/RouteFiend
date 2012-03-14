@@ -32,24 +32,24 @@
 		$output .= "<div class='entry'>";
 		if (!is_numeric($houseNums[$v]) || empty($houseNums[$v])) {
 			$valid = false;
-			$output .= '<span> Error - </span> <input type="text" name="houseNum[]" size="1"placeholder="number"><br />';
+			$output .= '<span> Error - </span> <input type="text" name="houseNum[]" size="1"placeholder="number"><br>';
 		}
 		else {
-			$output .= '<input type="text" name="houseNum[]" size="1"placeholder="number" value="'.$houseNums[$v].'"><br />';
+			$output .= '<input type="text" name="houseNum[]" size="1"placeholder="number" value="'.$houseNums[$v].'"><br>';
 		}
 		// validate street
 		if (empty($streets[$v]))
 		{
 			$valid = false;
-			$output .= '<span> Error - </span> <input type="text" name="street[]" size="10"placeholder="street"> <br />';
+			$output .= '<span> Error - </span> <input type="text" name="street[]" size="10"placeholder="street"> <br>';
 		}
 		else {
-			$output .= '<input type="text" name="street[]" size="10"placeholder="street" value="'.$streets[$v].'"> <br />';
+			$output .= '<input type="text" name="street[]" size="10"placeholder="street" value="'.$streets[$v].'"> <br>';
 		}
 		//validate postcode
 		if (!isPost($postcodes[$v])) {
 			$valid = false; 
-			$output .= '<span> Error - <input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"> <br>';
+			$output .= '<span> Error - </span> <input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"> <br>';
 		}
 		else {
 			$output .= '<input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"value="'.$postcodes[$v].'"> <br>';
@@ -73,6 +73,7 @@
 		width: 250px;
 		padding: 10px;
 	}
+
 	</style>
 		<script src="jquery.js"></script>
 	<script type='text/javascript'>
@@ -85,7 +86,7 @@
 						$(this).closest('.entry').remove();
 						$(main).find(".delete").remove();
 				}
-			  						$(this).closest('.entry').remove();
+				$(this).closest('.entry').remove();
 
 			  return false;
 			})
@@ -93,7 +94,7 @@
 			var $clone = $('.temp').clone();
 			$clone.attr('class','entry');
 
-			$('#add').click(function() {
+			$('#add').live('click',function() {
 				main.append($clone.clone().show());
 					if ( ($(".entry").length) == 2 ) {
 					$('.entry').one().first().append($('<a>', {
@@ -109,15 +110,16 @@
 	</script>
 </head>
 <body>
-	<div id="main">
 <?php 
 	if (!$valid) {
-		echo "<h1> Error </h1>";
 		echo '<form method="POST" action="get.php">';
+		echo "	<div id='main'>";
+		echo "<h1> Error </h1>";
 		echo $output;
 		echo "</div>";
 		echo '     <input type="submit">';
 		echo '     <input id="add" type="button" value="Add another text input">';
+		echo '   </form>';
 	}
 	else {
 			for ($i=0; $i < $count; $i++) { 
@@ -142,11 +144,10 @@
 		}
 	}
  ?>
-   </form>
 
    	<div class = "temp"style="display:none">
-     		<input type="text" name="houseNum[]" size="1"placeholder="number"><br />
-     		<input type="text" name="street[]" size="10"placeholder="street"> <br />
+     		<input type="text" name="houseNum[]" size="1"placeholder="number"><br>
+     		<input type="text" name="street[]" size="10"placeholder="street"> <br>
           <input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"> <br>
           <?php echo genSelectDefault(); ?>
           <a href='#' class='delete'> delete </a>
