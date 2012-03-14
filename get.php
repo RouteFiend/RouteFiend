@@ -82,17 +82,26 @@
 
 			$("a.delete").live("click", function() { 
 				if( ($(".entry").length) == 2 ) {
-						$(this).parent().remove();
+						$(this).closest('.entry').remove();
 						$(main).find(".delete").remove();
 				}
-			  $(this).parent().remove();
+			  						$(this).closest('.entry').remove();
+
 			  return false;
 			})
 
 			var $clone = $('.temp').clone();
 			$clone.attr('class','entry');
+
 			$('#add').click(function() {
 				main.append($clone.clone().show());
+					if ( ($(".entry").length) == 2 ) {
+					$('.entry').one().first().append($('<a>', {
+					text: 'delete', 
+					class: 'delete', 
+					href: '#'
+					}));
+				}
 			})
 
 
@@ -120,11 +129,6 @@
 						$timeTo[$i]." ".
 						$periodsTo[$i]."<br />";
 	} 
-	/*
-		foreach ($orders as $order) {
-		echo $order;
-		}
-		*/
 		for ($i=0; $i < $count; $i++) { 
 			$jsonurl = "http://maps.googleapis.com/maps/api/geocode/json?address=".$houseNums[$i]."+".urlencode($streets[$i]).",+".urlencode($postcodes[$i])."&sensor=false";
 			//$json = file_get_contents($jsonurl,0,null,null);
@@ -138,6 +142,8 @@
 		}
 	}
  ?>
+   </form>
+
    	<div class = "temp"style="display:none">
      		<input type="text" name="houseNum[]" size="1"placeholder="number"><br />
      		<input type="text" name="street[]" size="10"placeholder="street"> <br />
@@ -145,6 +151,5 @@
           <?php echo genSelectDefault(); ?>
           <a href='#' class='delete'> delete </a>
       </div>
-  </form>
 </body>
 </html>
