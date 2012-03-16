@@ -20,7 +20,7 @@
 		<div class="fix"> <input class="input" type="text" placeholder="password" /> </div>
 		<div class="fix">
 			<a href="#" class="btn" id="sign">Sign Up for RouteFiend</a>           
-			<a href="input.php" class="btn" id="log">Login</a>
+			<a href="in.php" class="btn" id="log">Login</a>
 		</div>
 		</form>
 	</div>

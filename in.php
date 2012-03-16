@@ -1,7 +1,9 @@
 <?php 
-		include 'genTime.php';
-
-		function isPost($postcode) {
+ 	ini_set('display_errors', 1);
+    error_reporting(E_ALL | E_STRICT);
+    include 'genTime.php';
+    $timeHtml = genSelectDefault();
+    function isPost($postcode) {
 		$postcode = strtoupper($postcode);
 		$postcode = preg_replace('/[^A-Z0-9]/', '', $postcode);
 		$postcode = preg_replace('/([A-Z0-9]{3})$/', ' \1', $postcode);
@@ -13,10 +15,10 @@
 			return false;
 		}
 
-		} 
-	ini_set('display_errors', 1);
-	error_reporting(E_ALL | E_STRICT);
-	$valid = true;
+	}
+	if (isset($_POST['submitted']))
+	{
+		$valid = true;
 	$houseNums = $_POST['houseNum'];
 	$streets = $_POST['street'];
 	$postcodes = $_POST['postCode'];
@@ -61,12 +63,28 @@
 		}
 		$output .= "</div>";
 	}
-?>
+	}
+	else {
+		$output = '
+	<form method="POST" action="merge.php">
+     <div id="main">
+     	<div class = "entry">
+     		<input type="text" name="houseNum[]" size="1"placeholder="number"><br />
+     		<input type="text" name="street[]" size="10"placeholder="street"> <br />
+          <input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"> <br>'.$timeHtml.'
+	      </div>
+     </div>
+     <input id="add" type="button" value="Add another text input">
+     <input type="submit">
+     <input type="hidden" name="submitted" value="TRUE" />
+</form>';
+	}
+ ?>
 <html>
 <head>
 	<title></title>
 	<style type="text/css">
-		body{
+	body{
 		font-size: 14px;
 	}
 	.entry{
@@ -75,12 +93,11 @@
 		width: 250px;
 		padding: 10px;
 	}
-
 	</style>
 	<script src="jquery.js"></script>
 	<script type='text/javascript'>
-			$(document).ready(function() {
-
+		$(document).ready(function() {
+			
 				var main = $('#main');
 
 			$("a.delete").live("click", function() { 
@@ -105,25 +122,25 @@
 					href: '#'
 					}));
 				}
-			})
-
-
+			})	
 		})
 	</script>
 </head>
 <body>
-<?php 
-	if (!$valid) {
-		echo '<form method="POST" action="get.php">';
-		echo "	<div id='main'>";
-		echo "<h1> Error </h1>";
-		echo $output;
-		echo "</div>";
-		echo '     <input type="submit">';
-		echo '     <input id="add" type="button" value="Add another text input">';
-		echo '   </form>';
-	}
-	else {
+
+	<?php 
+	if (isset($_POST['submitted'])){
+		if(!$valid){
+			echo '<form method="POST" action="get.php">';
+			echo "	<div id='main'>";
+			echo "<h1> Error </h1>";
+			echo $output;
+			echo "</div>";
+			echo '     <input type="submit">';
+			echo '     <input id="add" type="button" value="Add another text input">';
+			echo '   </form>';
+		}
+		else {
 			for ($i=0; $i < $count; $i++) { 
 		$orders[$i] = 	$houseNums[$i]." ".
 						$streets[$i]." ".
@@ -145,8 +162,11 @@
 			echo (String) $json_output->results[0]->formatted_address." ".$timeFrom[$i].$periodsFrom[$i]." - ".$timeTo[$i].$periodsTo[$i]."<br>";
 		}
 	}
- ?>
-
+		}
+	else {
+		echo $output;
+	}
+	?>
    	<div class = "temp"style="display:none">
      		<input type="text" name="houseNum[]" size="1"placeholder="number"><br>
      		<input type="text" name="street[]" size="10"placeholder="street"> <br>
