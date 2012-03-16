@@ -66,7 +66,7 @@
 	}
 	else {
 		$output = '
-	<form method="POST" action="merge.php">
+	<form method="POST" action="in.php">
      <div id="main">
      	<div class = "entry">
      		<input type="text" name="houseNum[]" size="1"placeholder="number"><br />
@@ -131,13 +131,14 @@
 	<?php 
 	if (isset($_POST['submitted'])){
 		if(!$valid){
-			echo '<form method="POST" action="get.php">';
+			echo '<form method="POST" action="in.php">';
 			echo "	<div id='main'>";
 			echo "<h1> Error </h1>";
 			echo $output;
 			echo "</div>";
 			echo '     <input type="submit">';
 			echo '     <input id="add" type="button" value="Add another text input">';
+			echo '     <input type="hidden" name="submitted" value="TRUE" />';
 			echo '   </form>';
 		}
 		else {
