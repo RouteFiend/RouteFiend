@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>routefiend</title>
-
+	<link rel="shortcut icon" href="img/rf2.ico">
 	<style type="text/css">
 	#container{
   width:270px;
