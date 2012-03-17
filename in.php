@@ -1,6 +1,9 @@
 <?php 
+
  	ini_set('display_errors', 1);
     error_reporting(E_ALL | E_STRICT);
+    session_start();
+   	echo $_SESSION['user_id'];
     include 'genTime.php';
     $timeHtml = genSelectDefault();
     function isPost($postcode) {
@@ -168,6 +171,7 @@
 		echo $output;
 	}
 	?>
+	<a href="logout.php">logout</a>
    	<div class = "temp"style="display:none">
      		<input type="text" name="houseNum[]" size="1"placeholder="number"><br>
      		<input type="text" name="street[]" size="10"placeholder="street"> <br>
