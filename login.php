@@ -1,33 +1,44 @@
-<?php 
-echo '
-<html>
-<head>
-	<title>routefiend</title>
-	<link rel="shortcut icon" href="img/ic.ico">
-	<style type="text/css">
-	#container{
-  width:270px;
-}
-.fix {
-	margin-bottom:10px;
-  width:100%;
-}
-	</style>
-</head>
-<body>
-<div id="container"> 
-		<h1>routefiend</h1>
-		<form method="POST" action="merge.php">
-		<div class="fix"> <input name="email" class="input" type="text" placeholder="user" /> </div>
-		<div class="fix"> <input name="password" class="input" type="text" placeholder="password" /> </div>
-		<div class="fix">
-			<a href="#" class="btn" id="sign">Sign Up for RouteFiend</a>   
-			<input type="submit">        
-			<!-- <a href="in.php" class="btn" id="log">Login</a> -->
-		</div>
-		<input type="hidden" name="sub_login" value="TRUE" />
-		</form>
-	</div>
-</body>
-</html>';
-?>
+<?php include 'header.php'; ?>
+
+		 <div class="container" id="loginCont">
+		 	<div class="inner">
+
+		      <form class="form-inline" method="POST" action="index.php">
+		      	<fieldset>	<div class="control-group">
+		      				 			 	<legend><h1 id="logo">route<small>fiend</small></h1></legend>
+	<?php if($_GET['login_err']) {
+		echo ' 
+    <div class="alert alert-error"><i class="icon-exclamation-sign"></i>
+    <a class="close" data-dismiss="alert">×</a>
+        <strong>Error: </strong> Login Incorrect
+    </div>';
+	}
+	?>
+            <div class="controls">
+              <div class="input-prepend">
+
+                <span class="add-on"><i class="icon-envelope"></i></span><input name="email"class="input-medium" id="d" size="16" type="text"placeholder="email">
+              </div>
+            </div>
+        </div>
+	<div class="control-group">
+
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on"><i class="icon-key"></i></span><input name="password" class="input-medium" id="prependedInput" size="16" type="password"placeholder="password">
+              </div>
+            </div>
+        </div>
+                  <div class="form-actions">
+        			        			<button type="submit" class="btn" id="reg"><i class="icon-chevron-left"></i> Sign up</button>   
+
+        			<button type="submit" class="btn btn-inverse" id="sign">Login <i class="icon-chevron-right"> </i></button>   
+
+        		<input type="hidden" name="sub_login" value="TRUE" />
+        	</div>
+</fieldset>
+        </form>
+          </div>
+      </div>
+	 
+<?php include 'footer.php'; ?>
