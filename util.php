@@ -76,4 +76,17 @@
         $out = genTimeDefault(1);
         return $in." to ".$out;
     }
+        function isPost($postcode) {
+        $postcode = strtoupper($postcode);
+        $postcode = preg_replace('/[^A-Z0-9]/', '', $postcode);
+        $postcode = preg_replace('/([A-Z0-9]{3})$/', ' \1', $postcode);
+        $postcode = trim($postcode);
+
+        if (preg_match('/^[a-z](\d[a-z\d]?|[a-z]\d[a-z\d]?) \d[a-z]{2}$/i', $postcode)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 ?>

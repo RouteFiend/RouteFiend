@@ -3,14 +3,15 @@
     error_reporting(E_ALL | E_STRICT);
 
     session_start();
+    echo $_GET['login_err'];
     if (isset($_SESSION['user_id'])) {
     		$url = "in.php";
 			header("location: $url");
 			exit();
     }
-	if (isset($_POST['submitted'])) {
+	if (isset($_POST['sub_login'])) {
 		require_once('dbc.php');
-filename
+
 		$valid = true;
 		if (!(empty($_POST['email']))) {
 			$e = mysql_real_escape_string(trim(strip_tags($_POST['email'])), $dbc);
@@ -41,6 +42,10 @@ filename
 			exit();
 			}
 		else {
+			$login_err = true;
+			$url = "index.php?login_err=$login_err";
+			header("location: $url");
+			exit();
 			echo "nah";
 		}
 	}
@@ -70,7 +75,7 @@ filename
 			<input type="submit">        
 			<!-- <a href="in.php" class="btn" id="log">Login</a> -->
 		</div>
-		<input type="hidden" name="submitted" value="TRUE" />
+		<input type="hidden" name="sub_login" value="TRUE" />
 		</form>
 	</div>
 </body>

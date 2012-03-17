@@ -4,22 +4,10 @@
     error_reporting(E_ALL | E_STRICT);
     session_start();
    	echo $_SESSION['user_id'];
-    include 'genTime.php';
+    include 'util.php';
     $timeHtml = genSelectDefault();
-    function isPost($postcode) {
-		$postcode = strtoupper($postcode);
-		$postcode = preg_replace('/[^A-Z0-9]/', '', $postcode);
-		$postcode = preg_replace('/([A-Z0-9]{3})$/', ' \1', $postcode);
-		$postcode = trim($postcode);
 
-		if (preg_match('/^[a-z](\d[a-z\d]?|[a-z]\d[a-z\d]?) \d[a-z]{2}$/i', $postcode)) {
-			return true;
-		} else {
-			return false;
-		}
-
-	}
-	if (isset($_POST['submitted']))
+	if (isset($_POST['sub_post']))
 	{
 		$valid = true;
 	$houseNums = $_POST['houseNum'];
@@ -79,7 +67,7 @@
      </div>
      <input id="add" type="button" value="Add another text input">
      <input type="submit">
-     <input type="hidden" name="submitted" value="TRUE" />
+     <input type="hidden" name="sub_post" value="TRUE" />
 </form>';
 	}
  ?>
@@ -132,7 +120,7 @@
 <body>
 
 	<?php 
-	if (isset($_POST['submitted'])){
+	if (isset($_POST['sub_post'])){
 		if(!$valid){
 			echo '<form method="POST" action="in.php">';
 			echo "	<div id='main'>";
@@ -141,7 +129,7 @@
 			echo "</div>";
 			echo '     <input type="submit">';
 			echo '     <input id="add" type="button" value="Add another text input">';
-			echo '     <input type="hidden" name="submitted" value="TRUE" />';
+			echo '     <input type="hidden" name="sub_post" value="TRUE" />';
 			echo '   </form>';
 		}
 		else {
