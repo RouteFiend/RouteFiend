@@ -1,4 +1,6 @@
-
+body{
+	padding-top: 60px;
+}
 #loginCont{margin-top:10%;}
 #logo {
 	font-size:40px;
@@ -21,4 +23,15 @@
    } 
    .form-actions{
    	background: white;
+
    }
+   .navbar{
+   	height:50px;
+   }
+   .navbar-inner{
+   	height:50px;
+   }
+   .alert{
+   	margin-top:10px;
+   }
+}

@@ -1,9 +1,11 @@
 <?php 
 
- 	ini_set('display_errors', 1);
-    error_reporting(E_ALL | E_STRICT);
+ 	//ini_set('display_errors', 1);
+    //error_reporting(E_ALL | E_STRICT);
+
     session_start();
-   	echo $_SESSION['user_id'];
+
+
     include 'util.php';
     $timeHtml = genSelectDefault();
 
@@ -56,8 +58,43 @@
 	}
 	}
 	else {
-		$output = '
-	<form method="POST" action="merge.php?pa=2">
+		$output = ' <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+                  <a class="brand" href="index.php"><h1>route<small>fiend</small></h1></a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="#">About</a>
+              </li>
+            </ul>
+            <ul class="nav pull-right">
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><i class="icon-user"></i> '.$_SESSION['email'].'</b> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+               <li><a href="#">Options</a></li>
+                <li class="divider"></li>
+                <li><a href="logout.php">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+<form method="POST" action="index.php?pa=2">
+<fieldset>	
+			<legend><h2>Form</h2></legend>
+	<form method="POST" action="index.php?pa=2">
      <div id="main">
      	<div class = "entry">
      		<input type="text" name="houseNum[]" size="1"placeholder="number"><br />
@@ -68,24 +105,11 @@
      <input id="add" type="button" value="Add another text input">
      <input type="submit">
      <input type="hidden" name="sub_post" value="TRUE" />
-</form>';
+</form>
+</div>';
 	}
  ?>
-<html>
-<head>
-	<title></title>
-	<style type="text/css">
-	body{
-		font-size: 14px;
-	}
-	.entry{
-		margin-bottom:15px;
-		border: thin solid black;
-		width: 250px;
-		padding: 10px;
-	}
-	</style>
-	<script src="jquery.js"></script>
+<?php include 'header.php'; ?>
 	<script type='text/javascript'>
 		$(document).ready(function() {
 			
@@ -100,8 +124,8 @@
 
 			  return false;
 			})
-
-			var $clone = $('.temp').clone();
+			var html = $('.temp').get(0).cloneNode(true);
+			var $clone = $(html);
 			$clone.attr('class','entry');
 
 			$('#add').live('click',function() {
@@ -116,13 +140,14 @@
 			})	
 		})
 	</script>
-</head>
-<body>
 
 	<?php 
 	if (isset($_POST['sub_post'])){
 		if(!$valid){
-			echo '<form method="POST" action="merge.php?pa=2">';
+			echo "<h1 id = 'logo'>route<small>fiend</small></h1>";
+			echo '<form method="POST" action="index.php?pa=2">';
+			echo'	<fieldset>	';
+			echo '<legend><h2>Form</h2></legend>';
 			echo "	<div id='main'>";
 			echo "<h1> Error </h1>";
 			echo $output;
@@ -130,6 +155,7 @@
 			echo '     <input type="submit">';
 			echo '     <input id="add" type="button" value="Add another text input">';
 			echo '     <input type="hidden" name="sub_post" value="TRUE" />';
+			echo '</fieldset>';
 			echo '   </form>';
 		}
 		else {
@@ -167,5 +193,4 @@
           <?php echo genSelectDefault(); ?>
           <a href='#' class='delete'> delete </a>
       </div>
-</body>
-</html>
+<?php include 'footer.php'; ?>

@@ -1,18 +1,7 @@
 <?php 
- 	ini_set('display_errors', 1);
-    error_reporting(E_ALL | E_STRICT);
+ 	//ini_set('display_errors', 1);
+    //error_reporting(E_ALL | E_STRICT);
 
-//echo $url;
-    		$pa = 2;
-    				$url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
-				if ((substr($url, -1) == '/') OR (substr($url, -1)) == '\\') {
-					$url = substr($url, 0,-1); //chop slash
-				}
-
-    		$url .= "http://wwww.routefiend.com/index.php?pa=$pa";
-    		    		$url = "http://wwww.routefiend.com/index.php?pa=$pa";
-
-    		echo $url;
     session_start();
    //echo $_GET['login_err'];
     //echo $_GET['pa'];
@@ -29,9 +18,6 @@
 				}
 
     		$url .= "/index.php?pa=$pa";
-    		    		$url = "http://wwww.routefiend.com/index.php?pa=$pa";
-
-    		echo $url;
 			header("location: $url");
 			exit();
     }
@@ -56,7 +42,7 @@
 			}
 
 			if($valid) {
-				$query = "SELECT user_id, first_name FROM users WHERE email='$e' AND password=SHA('$p')";
+				$query = "SELECT user_id, first_name, email FROM users WHERE email='$e' AND password=SHA('$p')";
 				$result = mysql_query($query);
 				$row = mysql_fetch_array($result, MYSQL_NUM);
 			}
@@ -64,6 +50,7 @@
 				//session_start();
 				$_SESSION['user_id'] = $row[0];
 				$_SESSION['name'] = $row[1];
+				$_SESSION['email'] = $row[2];
 				$url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
 				if ((substr($url, -1) == '/') OR (substr($url, -1)) == '\\') {
 					$url = substr($url, 0,-1); //chop slash
@@ -71,9 +58,7 @@
 								    		$pa = 2;
 
 					$url .= '/index.php?ph=$pa';
-					    		$url = "http://wwww.routefiend.com/index.php?pa=$pa";
 
-					echo $url;
 
 			header("location: $url");
 			exit();
@@ -85,10 +70,7 @@
 				if ((substr($url, -1) == '/') OR (substr($url, -1)) == '\\') {
 					$url = substr($url, 0,-1); //chop slash
 				}
-				    		echo $url;
-
 				$url .= "/index.php?login_err=$login_err";
-				$url = "http://www.routefiend.com/index.php?login_err=1";
 				header("location: $url");
 				exit();
 				echo "nah";
