@@ -13,7 +13,7 @@
     	if (isset($_SESSION['user_id'])) {
     		$pa = 2;
     				$url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
-				if ((substr($url, -1) == '/') OR (substr($url, -1)) == '\\') {
+				if ((substr($url, -1) == '/r') OR (substr($url, -1)) == '\\') {
 					$url = substr($url, 0,-1); //chop slash
 				}
 

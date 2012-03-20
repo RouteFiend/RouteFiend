@@ -12,53 +12,97 @@
 	if (isset($_POST['sub_post']))
 	{
 		$valid = true;
-	$houseNums = $_POST['houseNum'];
-	$streets = $_POST['street'];
-	$postcodes = $_POST['postCode'];
+	$intersections = $_POST['intersection'];
 	$periodsFrom = $_POST['periodFrom'];
 	$periodsTo = $_POST['periodTo'];
 	$timeFrom = $_POST['timeSelectFrom'];
 	$timeTo = $_POST['timeSelectTo'];	
-	$count = count($postcodes);
+	$count = count($intersections);
 
 	$output = "\n";
 	for ($v = 0; $v < $count; $v++) {
 	// validate house 
-		$output .= "<div class='entry'>";
-		if (!is_numeric($houseNums[$v]) || empty($houseNums[$v])) {
+		$output .= "<div class='well'>";
+		$output .= '    <a class="close">&times;</a>';	
+		if (empty($intersections[$v])) {
 			$valid = false;
-			$output .= '<span> Error - </span> <input type="text" name="houseNum[]" size="1"placeholder="number"><br>';
+			$output .= '<span> Error - </span> <input type="text" name="intersection[]" size="1"placeholder="intersection">';
 		}
 		else {
-			$output .= '<input type="text" name="houseNum[]" size="1"placeholder="number" value="'.$houseNums[$v].'"><br>';
+			$output .= '<input type="text" name="intersection[]" size="1"placeholder="intersection" value="'.$intersections[$v].'">';
+
 		}
-		// validate street
-		if (empty($streets[$v]))
-		{
-			$valid = false;
-			$output .= '<span> Error - </span> <input type="text" name="street[]" size="10"placeholder="street"> <br>';
-		}
-		else {
-			$output .= '<input type="text" name="street[]" size="10"placeholder="street" value="'.$streets[$v].'"> <br>';
-		}
-		//validate postcode
-		if (!isPost($postcodes[$v])) {
-			$valid = false; 
-			$output .= '<span> Error - </span> <input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"> <br>';
-		}
-		else {
-			$output .= '<input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"value="'.$postcodes[$v].'"> <br>';
-		}
-		
-		$output .= genSelect($timeFrom[$v],$periodsFrom[$v],$timeTo[$v],$periodsTo[$v]);
 		if ($count > 1) {
-			$output .= "<a href='#' class='delete'> delete </a>";
+			$output .= "<a href='#' class='close'>&times;</a>";
+		}
+		$fullTimeFrom = strtotime($timeFrom[$v].$periodsFrom[$v]);
+		$fullTimeTo = strtotime($timeTo[$v].$periodsTo[$v]);
+		if ($fullTimeFrom > $fullTimeTo) {
+			$output .= '<span> Error - </span>';
+			$output .= genSelectDefault();
+		}
+		else {
+			$output .= genSelect($timeFrom[$v],$periodsFrom[$v],$timeTo[$v],$periodsTo[$v]);
+
 		}
 		$output .= "</div>";
 	}
 	}
 	else {
-		$output = ' <div class="navbar navbar-fixed-top">
+		$output = '
+    <div class="container" id="get_cont">
+<form method="POST" action="index.php?pa=2">
+<fieldset>	
+			<legend><h2 id="tadd">Add Intersections</h2></legend>
+	<form method="POST" action="index.php?pa=2">
+     <div id="main">
+     	<div class = "well">
+     	   <input class="input-small" type="text" name="intersection[]" size="1"placeholder="intersection">'.$timeHtml.'
+
+	      </div>
+     </div>
+                       <div class="form-actions">
+     <button id="add" type="button" class="btn" id="sign"><i class="icon-plus"></i> Add</button>   
+     <button type="submit" class="btn btn-inverse" id="sign">Next <i class="icon-arrow-right"> </i></button>   
+     </div>
+     <input type="hidden" name="sub_post" value="TRUE" />
+</form>
+</div>';
+	}
+ ?>
+<?php include 'header.php'; ?>
+	<script type='text/javascript'>
+		$(document).ready(function() {
+			
+				var main = $('#main');
+
+			$("a.close").live("click", function() { 
+				if( ($(".well").length) == 2 ) {
+						$(this).closest('.well').remove();
+						$(main).find(".close").remove();
+				}
+				$(this).closest('.well').remove();
+
+			  return false;
+			})
+			var html = $('.temp').get(0).cloneNode(true);
+			var $clone = $(html);
+			$clone.attr('class','well');
+
+			$('#add').live('click',function() {
+				main.append($clone.clone().show());
+					if ( ($(".well").length) == 2 ) {
+					$('.well').one().first().append($('<a>', {
+					text:"×",
+					class: 'close'				
+				}));
+				}
+			})	
+		})
+	</script>
+
+	<?php 
+	echo ' <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -78,8 +122,6 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><i class="icon-user"></i> '.$_SESSION['email'].'</b> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-               <li><a href="#">Options</a></li>
-                <li class="divider"></li>
                 <li><a href="logout.php">Logout</a></li>
               </ul>
             </li>
@@ -88,63 +130,10 @@
         </div>
       </div>
     </div>
-
-
-    <div class="container">
-<form method="POST" action="index.php?pa=2">
-<fieldset>	
-			<legend><h2>Form</h2></legend>
-	<form method="POST" action="index.php?pa=2">
-     <div id="main">
-     	<div class = "entry">
-     		<input type="text" name="houseNum[]" size="1"placeholder="number"><br />
-     		<input type="text" name="street[]" size="10"placeholder="street"> <br />
-          <input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"> <br>'.$timeHtml.'
-	      </div>
-     </div>
-     <input id="add" type="button" value="Add another text input">
-     <input type="submit">
-     <input type="hidden" name="sub_post" value="TRUE" />
-</form>
-</div>';
-	}
- ?>
-<?php include 'header.php'; ?>
-	<script type='text/javascript'>
-		$(document).ready(function() {
-			
-				var main = $('#main');
-
-			$("a.delete").live("click", function() { 
-				if( ($(".entry").length) == 2 ) {
-						$(this).closest('.entry').remove();
-						$(main).find(".delete").remove();
-				}
-				$(this).closest('.entry').remove();
-
-			  return false;
-			})
-			var html = $('.temp').get(0).cloneNode(true);
-			var $clone = $(html);
-			$clone.attr('class','entry');
-
-			$('#add').live('click',function() {
-				main.append($clone.clone().show());
-					if ( ($(".entry").length) == 2 ) {
-					$('.entry').one().first().append($('<a>', {
-					text: 'delete', 
-					class: 'delete', 
-					href: '#'
-					}));
-				}
-			})	
-		})
-	</script>
-
-	<?php 
+';
 	if (isset($_POST['sub_post'])){
 		if(!$valid){
-			echo "<h1 id = 'logo'>route<small>fiend</small></h1>";
+			echo '<div class="container" id="get_cont">';
 			echo '<form method="POST" action="index.php?pa=2">';
 			echo'	<fieldset>	';
 			echo '<legend><h2>Form</h2></legend>';
@@ -157,6 +146,7 @@
 			echo '     <input type="hidden" name="sub_post" value="TRUE" />';
 			echo '</fieldset>';
 			echo '   </form>';
+			echo '</div>';
 		}
 		else {
 			for ($i=0; $i < $count; $i++) { 
@@ -185,12 +175,10 @@
 		echo $output;
 	}
 	?>
-	<a href="logout.php">logout</a>
    	<div class = "temp"style="display:none">
-     		<input type="text" name="houseNum[]" size="1"placeholder="number"><br>
-     		<input type="text" name="street[]" size="10"placeholder="street"> <br>
-          <input type="text" name="postCode[]" maxlength="7"size="2"placeholder="postcode"> <br>
+   		     	   <input class="input-small" type="text" name="intersection[]" size="1"placeholder="intersection">
           <?php echo genSelectDefault(); ?>
-          <a href='#' class='delete'> delete </a>
+               	         	    <a class="close">&times;</a>
+
       </div>
 <?php include 'footer.php'; ?>
