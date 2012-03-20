@@ -3,7 +3,6 @@
  	//ini_set('display_errors', 1);
     //error_reporting(E_ALL | E_STRICT);
 
-    session_start();
 
 
     include 'util.php';
@@ -22,14 +21,13 @@
 	$output = "\n";
 	for ($v = 0; $v < $count; $v++) {
 	// validate house 
-		$output .= "<div class='well'>";
-		$output .= '    <a class="close">&times;</a>';	
+		$output .= "<div class='well' style='background-color: #f2dede' >";
 		if (empty($intersections[$v])) {
 			$valid = false;
-			$output .= '<span> Error - </span> <input type="text" name="intersection[]" size="1"placeholder="intersection">';
+			$output .= '<input class="input-small" type="text" name="intersection[]" size="1"placeholder="intersection">';
 		}
 		else {
-			$output .= '<input type="text" name="intersection[]" size="1"placeholder="intersection" value="'.$intersections[$v].'">';
+			$output .= '<input class="input-small"type="text" name="intersection[]" size="1"placeholder="intersection" value="'.$intersections[$v].'">';
 
 		}
 		if ($count > 1) {
@@ -38,7 +36,7 @@
 		$fullTimeFrom = strtotime($timeFrom[$v].$periodsFrom[$v]);
 		$fullTimeTo = strtotime($timeTo[$v].$periodsTo[$v]);
 		if ($fullTimeFrom > $fullTimeTo) {
-			$output .= '<span> Error - </span>';
+			$output .= '<span class="label label-important">Important</span> ';
 			$output .= genSelectDefault();
 		}
 		else {
@@ -59,16 +57,16 @@
      	<div class = "well">
      	   <input class="input-small" type="text" name="intersection[]" size="1"placeholder="intersection">'.$timeHtml.'
 
-	      </div>
-     </div>
-                       <div class="form-actions">
+	      </div>';
+	}
+	     $foot = '       </div>
+                     <div class="form-actions">
      <button id="add" type="button" class="btn" id="sign"><i class="icon-plus"></i> Add</button>   
      <button type="submit" class="btn btn-inverse" id="sign">Next <i class="icon-arrow-right"> </i></button>   
      </div>
      <input type="hidden" name="sub_post" value="TRUE" />
 </form>
 </div>';
-	}
  ?>
 <?php include 'header.php'; ?>
 	<script type='text/javascript'>
@@ -129,25 +127,20 @@
           </div>
         </div>
       </div>
-    </div>
-';
+    </div>';
 	if (isset($_POST['sub_post'])){
 		if(!$valid){
 			echo '<div class="container" id="get_cont">';
 			echo '<form method="POST" action="index.php?pa=2">';
 			echo'	<fieldset>	';
-			echo '<legend><h2>Form</h2></legend>';
+			echo '<legend><h2 id="tadd">Add Intersections</h2></legend>';
 			echo "	<div id='main'>";
-			echo "<h1> Error </h1>";
+			  echo ' 
+    <div class="alert alert-error">
+    <a class="close" data-dismiss="alert">×</a>
+        <span class="badge badge-error">6</span> <strong>Errors found </strong></div>';
 			echo $output;
-			echo "</div>";
-			echo '     <input type="submit">';
-			echo '     <input id="add" type="button" value="Add another text input">';
-			echo '     <input type="hidden" name="sub_post" value="TRUE" />';
-			echo '</fieldset>';
-			echo '   </form>';
-			echo '</div>';
-		}
+			echo $foot;		}
 		else {
 			for ($i=0; $i < $count; $i++) { 
 		$orders[$i] = 	$houseNums[$i]." ".
@@ -173,6 +166,7 @@
 		}
 	else {
 		echo $output;
+		echo $foot;
 	}
 	?>
    	<div class = "temp"style="display:none">

@@ -9,7 +9,7 @@
     		$ts = 'timeSelectTo[]';
     		$periodID = 'periodTo[]';
     	}
-	    $output = "\n"."<select name='$ts' id='$ts'>"."\n";
+	    $output = "\n"."<select class='input-mini' name='$ts' id='$ts'>"."\n";
 		for ($i=1; $i < 13; $i++) {
 			for ($j=0; $j < 60; $j = $j + 15) { 
                 $timeOption = ($j == 0 ? $i.":00" : $i.":".$j);
@@ -22,7 +22,7 @@
 				$output .= "\n";
 			}
 		}
-		$output .= "</select> \n <select name='$periodID' id='$periodID'> \n";
+		$output .= "</select> \n <select class='input-mini' name='$periodID' id='$periodID'> \n";
 
 
             if ($period == 'am') {
@@ -42,7 +42,8 @@
     function genSelect($ft,$fp,$tt,$tp) {
     	$in = genTime(0,$ft,$fp);
     	$out = genTime(1,$tt,$tp);
-    	return $in." to ".$out;
+                return $in.'<span class="toto"><i class="icon-arrow-right"> </i>    </span>'.$out;
+
     }
       function genTimeDefault($s) {
         if ($s == 0) {
@@ -74,7 +75,7 @@
     function genSelectDefault() {
         $in = genTimeDefault(0);
         $out = genTimeDefault(1);
-        return $in.'<span class="toto"><i class="icon-arrow-right"> </i> </span>'.$out;
+        return $in.'<span class="toto"><i class="icon-arrow-right"> </i>    </span>'.$out;
     }
         function isPost($postcode) {
         $postcode = strtoupper($postcode);

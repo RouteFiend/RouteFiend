@@ -16,6 +16,9 @@ body{
 }
 .container{text-align:center;}
 .inner{width:240px;margin: 0 auto;}
+#main{
+padding-top:3px;
+}
 .well{
    margin:0 auto;
       margin-top:15px;
@@ -51,3 +54,4 @@ body{
       margin-top:60px;
             width:600px;
 }
+
