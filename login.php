@@ -1,4 +1,7 @@
 <?php include 'header.php'; ?>
+<script type="text/javascript">
+    $(".alert").alert();
+</script>
 <div id="top"></div>
 		 <div class="container" id="loginCont">
 		 	<div class="inner">
@@ -10,14 +13,14 @@
 
 	<?php if($_GET['login_err']) {
 		echo ' 
-    <div class="alert alert-error"><i class="icon-exclamation-sign"></i>
+    <div class="alert alert-error fade in"><i class="icon-exclamation-sign"></i>
     <a class="close" data-dismiss="alert">×</a>
         <strong>Error: </strong> Login Incorrect
     </div>';
 	}
     if($_GET['sign_up']) {
   echo ' 
-    <div class="alert alert-info"><i class="icon-cog"></i>
+    <div class="alert alert-info fade in"><i class="icon-cog"></i>
     <a class="close" data-dismiss="alert">×</a>
         <strong>Info: </strong> Sign ups not implemented
     </div>';

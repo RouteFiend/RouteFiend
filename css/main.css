@@ -23,7 +23,7 @@ padding-top:3px;
    margin:0 auto;
       margin-top:15px;
 		margin-bottom:15px;
-		width: 600px;
+		width: 250px;
 	}
 	   .add-on i {
    	color: grey;
@@ -52,6 +52,17 @@ padding-top:3px;
    }
    #get_cont{
       margin-top:60px;
-            width:600px;
+            width:400px;
 }
+.ezz{
+   float:left;
+     font-size: 20px;
+  font-weight: bold;
+  line-height: 28px;
+    color: #000000;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+
 

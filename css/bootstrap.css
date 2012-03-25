@@ -1883,10 +1883,8 @@ table .span24 {
   margin-bottom: 1px;
 }
 .typeahead {
-  margin-top: 2px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  margin-top: -1px;
+    min-width: 68px;
 }
 .well {
   min-height: 20px;
