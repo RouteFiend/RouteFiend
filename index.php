@@ -5,7 +5,10 @@
     session_start();
    //echo $_GET['login_err'];
     //echo $_GET['pa'];
-    if (($_GET['pa'] == 2) && (isset($_SESSION['user_id'])) ) {
+    if (($_GET['pa'] == 3) && (isset($_SESSION['user_id'])) ) {
+    	include 'do.php';
+    }
+   else if (($_GET['pa'] == 2) && (isset($_SESSION['user_id'])) ) {
     	include 'get.php';
     }
     else {
