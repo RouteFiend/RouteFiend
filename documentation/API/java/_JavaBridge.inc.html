@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page JavaBridge.inc</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/JavaBridge.inc</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+									<a href="#sec-includes">Includes</a>
+			|											<a href="#sec-functions">Functions</a>
+			</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">java_JavaBridge.php -- provides the PHP/Java Bridge PHP API.</p>
+<p class="description"><p>Copyright (C) 2003-2007 Jost Boekemeier</p><p>This file is part of the PHP/Java Bridge.</p><p>The PHP/Java Bridge (&quot;the library&quot;) is free software; you can  redistribute it and/or modify it under the terms of the GNU General  Public License as published by the Free Software Foundation; either  version 2, or (at your option) any later version.</p><p>The library is distributed in the hope that it will be useful, but  WITHOUT ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU  General Public License for more details.</p><p>You should have received a copy of the GNU General Public License  along with the PHP/Java Bridge; see the file COPYING.  If not, write to the  Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA.</p><p>Linking this file statically or dynamically with other modules is  making a combined work based on this library.  Thus, the terms and  conditions of the GNU General Public License cover the whole  combination.</p><p>As a special exception, the copyright holders of this library give you  permission to link this library with independent modules to produce an  executable, regardless of the license terms of these independent  modules, and to copy and distribute the resulting executable under  terms of your choice, provided that you also meet, for each linked  independent module, the terms and conditions of the license of that  module.  An independent module is a module which is not derived from  or based on this library.  If you modify this library, you may extend  this exception to your version of the library, but you are not  obligated to do so.  If you do not wish to do so, delete this  exception statement from your version.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Jost Boekemeier</li>
+				<li><span class="field">link:</span> <a href="http://php-java-bridge.sf.net">http://php-java-bridge.sf.net</a></li>
+				<li><span class="field">filesource:</span> <a href="../__filesource/fsource_java__JavaBridge.inc.html">Source Code for this file</a></li>
+				<li><span class="field">license:</span> GPL</li>
+			</ul>
+		
+			</div>
+</div>
+		
+
+	<a name="sec-includes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Includes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Includes</span>
+			|													<a href="#sec-functions">Functions</a>
+					</div>
+		<div class="info-box-body">	
+			<a name="_java_get_base()_/Options_inc"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="include-title">
+			<span class="include-type">require_once</span>
+			(<span class="include-name">java_get_base()."/Options.inc"</span>)
+			(line <span class="line-number"><a href="../__filesource/fsource_java__JavaBridge.inc.html#a71">71</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+</div>
+<a name="_java_get_base()_/JavaProxy_inc"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="include-title">
+			<span class="include-type">require_once</span>
+			(<span class="include-name">java_get_base()."/JavaProxy.inc"</span>)
+			(line <span class="line-number"><a href="../__filesource/fsource_java__JavaBridge.inc.html#a72">72</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+</div>
+		</div>
+	</div>
+	
+	
+	
+	<a name="sec-functions"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Functions</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-includes">Includes</a>
+				|												<span class="disabled">Functions</span>
+		</div>
+		<div class="info-box-body">	
+			<a name="functionJava" id="functionJava"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">Java</span> (line <span class="line-number"><a href="../__filesource/fsource_java__JavaBridge.inc.html#a207">207</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Access the java type with the given name.</p>
+<p class="description"><p>This procedure can be  used to access constants or procedures within a class.  <br /></p><p>To access class features, use the java constructor instead.<br /></p><p>Example: <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-id">java</span><span class="src-sym">(</span><span class="src-str">&quot;java.lang.Long&quot;</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">MAX_VALUE</span></div></li>
+</ol></div></p><p><br /> Any declared exception can be caught by PHP code. <br />  Exceptions derived from java.lang.RuntimeException or Error must  not be caught unless declared in the methods throws clause -- OutOfMemoryErrors cannot be caught at all,  even if declared.</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../java/Java.html">Java</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			Java
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The type name</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionjava_call_with_continuation" id="functionjava_call_with_continuation"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">java_call_with_continuation</span> (line <span class="line-number"><a href="../__filesource/fsource_java__JavaBridge.inc.html#a413">413</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Call the current Java continuation with the closed-over PHP environment  $kontinuation as its argument.</p>
+<p class="description"><p>This procedure can be used to transfer control back to a Java  continuation so that Java can call PHP procedures defined within  the passed environment. If no current Java continuation exists,  the procedure does nothing.</p><p>Example PHP script:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-inc">require_once</span><span class="src-sym">(</span><span class="src-str">&quot;java/Java.inc&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-comm">//&nbsp;...&nbsp;calculate&nbsp;sales&nbsp;for&nbsp;a&nbsp;given&nbsp;month&nbsp;...</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-key">function&nbsp;</span><span class="src-id">calculateSales</span><span class="src-sym">(</span><span class="src-var">$month</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span><span class="src-key">return&nbsp;</span><span class="src-sym">(</span>(int)(string)<span class="src-var">$month</span><span class="src-sym">)</span>+<span class="src-num">1</span><span class="src-sym">;</span><span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">write_response</span><span class="src-sym">(</span><span class="src-var">$response</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-comm">//&nbsp;prepare&nbsp;for&nbsp;out-of-band&nbsp;data:&nbsp;make&nbsp;our&nbsp;top-level&nbsp;environment</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-comm">//&nbsp;available&nbsp;to&nbsp;Java.&nbsp;But&nbsp;only&nbsp;if&nbsp;it&nbsp;has&nbsp;been&nbsp;requested&nbsp;by&nbsp;Java:</span></div></li>
+<li><div class="src-line">&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_call_with_continuation">java_call_with_continuation</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p><p>If the above PHP script is named  &quot;calculateSales.php&quot;, the JSR 223 API can be used to invoke its  functions or methods, to debug or test certain  functionality from Java while keeping the script running in a  production environment. The Java code follows:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-id">import&nbsp;javax</span>.<span class="src-id">script</span>.*<span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">import&nbsp;java</span>.<span class="src-id">net</span>.*<span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">import&nbsp;java</span>.<span class="src-id">io</span>.*<span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-key">class&nbsp;</span><span class="src-id">SalesTest&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">static&nbsp;</span><span class="src-id">void&nbsp;test</span><span class="src-sym">(</span><span class="src-id">Integer&nbsp;month</span><span class="src-sym">)&nbsp;</span><span class="src-id">throws&nbsp;Exception&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">ScriptEngine&nbsp;e&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">ScriptEngineManager</span><span class="src-sym">(</span><span class="src-sym">)</span>.<span class="src-id">getEngineByName</span><span class="src-sym">(</span><span class="src-str">&quot;php-invocable&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">ByteArrayOutputStream&nbsp;out</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">OutputStreamWriter&nbsp;writer</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">e</span>.<span class="src-id">getContext</span><span class="src-sym">(</span><span class="src-sym">)</span>.<span class="src-id">setWriter</span><span class="src-sym">(</span><span class="src-id">writer</span>=<span class="src-key">new&nbsp;</span><span class="src-id">OutputStreamWriter</span><span class="src-sym">(</span><span class="src-id">out</span>=<span class="src-key">new&nbsp;</span><span class="src-id">ByteArrayOutputStream</span><span class="src-sym">(</span><span class="src-sym">)))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">Object&nbsp;res</span>=<span class="src-id">e</span>.eval<span class="src-sym">(</span><span class="src-key">new&nbsp;</span><span class="src-id">php</span>.<span class="src-id">java</span>.<span class="src-id">script</span>.<span class="src-id">URLReader</span><span class="src-sym">(</span><span class="src-key">new&nbsp;</span><span class="src-id">URL</span><span class="src-sym">(</span><span class="src-str">&quot;http://localhost/calculateSales.php&quot;</span><span class="src-sym">)))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">System</span>.<span class="src-id">err</span>.<span class="src-id">println</span><span class="src-sym">(((</span><span class="src-id">Invocable</span><span class="src-sym">)</span><span class="src-id">e</span><span class="src-sym">)</span>.<span class="src-id">invokeFunction</span><span class="src-sym">(</span><span class="src-str">&quot;calculateSales&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-key">new&nbsp;</span><span class="src-id">Object</span><span class="src-sym">[</span><span class="src-sym">]</span><span class="src-sym">{</span><span class="src-id">month</span><span class="src-sym">}</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">((</span><span class="src-id">Closeable</span><span class="src-sym">)</span><span class="src-id">e</span><span class="src-sym">)</span>.<span class="src-id">close</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">System</span>.<span class="src-id">err</span>.<span class="src-id">println</span><span class="src-sym">(</span><span class="src-str">&quot;PHP&nbsp;exit()&nbsp;code:&quot;&nbsp;</span>+&nbsp;<span class="src-id">String</span>.<span class="src-id">valueOf</span><span class="src-sym">(</span><span class="src-id">res</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">System</span>.<span class="src-id">err</span>.<span class="src-id">println</span><span class="src-sym">(</span><span class="src-str">&quot;PHP&nbsp;output:&quot;&nbsp;</span>+&nbsp;<span class="src-id">String</span>.<span class="src-id">valueOf</span><span class="src-sym">(</span><span class="src-id">out</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">static&nbsp;</span><span class="src-id">void&nbsp;main</span><span class="src-sym">(</span><span class="src-id">String&nbsp;s</span><span class="src-sym">[</span><span class="src-sym">]</span><span class="src-sym">)&nbsp;</span><span class="src-id">throws&nbsp;Exception&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">test</span><span class="src-sym">(</span><span class="src-key">new&nbsp;</span><span class="src-id">Integer</span><span class="src-sym">(</span><span class="src-num">12</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">}</span></div></li>
+</ol></div></p><p>The above Java program opens a URL connection to the PHP script,  invokes the calculateSales() function from the passed PHP  environment and then outputs the exit code and the HTML response  of the PHP script.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			java_call_with_continuation
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$kontinuation</span> = <span class="var-default">null</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$kontinuation</span><span class="var-description">: May either be null, a PHP function name, a PHP object or a java_closure. If a PHP object is provided, the object is passed to Java. If a function name is provided, the function must return a java_closure. Otherwise the current environment is used.</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionjava_is_false" id="functionjava_is_false"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">java_is_false</span> (line <span class="line-number"><a href="../__filesource/fsource_java__JavaBridge.inc.html#a344">344</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks whether a value is NULL, 0, &quot;&quot; or false.</p>
+<p class="description"><p>Note that if you want to check if a value is boolean false, use  the following test: <div class="src-code"><ol><li><div class="src-line"><a href="../java/_JavaProxy.inc.html#functionjava_values">java_values</a><span class="src-sym">(</span><span class="src-var">$value</span><span class="src-sym">)</span>===<span class="src-id">false</span></div></li>
+</ol></div></p><p>Example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_is_false">java_is_false</a><span class="src-sym">(</span><span class="src-key">new&nbsp;</span><span class="src-id">java</span>.<span class="src-id">lang</span>.<span class="src-id">String</span><span class="src-sym">(</span><span class="src-str">&quot;12&quot;</span><span class="src-sym">))&nbsp;</span>=&gt;&nbsp;<span class="src-id">false</span></div></li>
+</ol></div></p><p>Example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_is_false">java_is_false</a><span class="src-sym">(</span><span class="src-key">new&nbsp;</span><span class="src-id">java</span>.<span class="src-id">lang</span>.<span class="src-id">String</span><span class="src-sym">(</span><span class="src-str">&quot;&quot;</span><span class="src-sym">))&nbsp;</span>=&gt;&nbsp;<span class="src-id">true</span></div></li>
+</ol></div></p><p>Example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_is_false">java_is_false</a><span class="src-sym">(</span><span class="src-num">1</span>==<span class="src-num">1</span><span class="src-sym">)&nbsp;</span>=&gt;&nbsp;<span class="src-id">false</span></div></li>
+</ol></div></p><p>Example: <div class="src-code"><ol><li><div class="src-line">&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_is_false">java_is_false</a><span class="src-sym">(</span><span class="src-id">java</span><span class="src-sym">(</span><span class="src-str">&quot;java.lang.System&quot;</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getProperty</span><span class="src-sym">(</span><span class="src-str">&quot;foo&quot;</span><span class="src-sym">))</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> if the PHP or Java value is false.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">true</span>
+		<span class="method-name">
+			java_is_false
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: A Java object or a PHP value</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionjava_is_null" id="functionjava_is_null"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">java_is_null</span> (line <span class="line-number"><a href="../__filesource/fsource_java__JavaBridge.inc.html#a271">271</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks whether a value is null or not.</p>
+<p class="description"><p>Example: <div class="src-code"><ol><li><div class="src-line">&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_is_null">java_is_null</a><span class="src-sym">(</span><span class="src-id">java</span><span class="src-sym">(</span><span class="src-str">&quot;java.lang.System&quot;</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getProperty</span><span class="src-sym">(</span><span class="src-str">&quot;foo&quot;</span><span class="src-sym">))</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> if $value is the PHP or Java null value.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">true</span>
+		<span class="method-name">
+			java_is_null
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: A Java object or a PHP value</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionjava_is_true" id="functionjava_is_true"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">java_is_true</span> (line <span class="line-number"><a href="../__filesource/fsource_java__JavaBridge.inc.html#a308">308</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks whether a value is not NULL, 0, &quot;&quot; or false.</p>
+<p class="description"><p>Note that if  you want to check if a value is boolean true, use the following  test: <div class="src-code"><ol><li><div class="src-line"><a href="../java/_JavaProxy.inc.html#functionjava_values">java_values</a><span class="src-sym">(</span><span class="src-var">$value</span><span class="src-sym">)</span>===<span class="src-id">true</span></div></li>
+</ol></div></p><p>Example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_is_true">java_is_true</a><span class="src-sym">(</span><span class="src-key">new&nbsp;</span><span class="src-id">java</span>.<span class="src-id">lang</span>.<span class="src-id">String</span><span class="src-sym">(</span><span class="src-str">&quot;12&quot;</span><span class="src-sym">))&nbsp;</span>=&gt;&nbsp;<span class="src-id">true</span></div></li>
+</ol></div></p><p>Example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_is_true">java_is_true</a><span class="src-sym">(</span><span class="src-key">new&nbsp;</span><span class="src-id">java</span>.<span class="src-id">lang</span>.<span class="src-id">String</span><span class="src-sym">(</span><span class="src-str">&quot;&quot;</span><span class="src-sym">))&nbsp;</span>=&gt;&nbsp;<span class="src-id">false</span></div></li>
+</ol></div></p><p>Example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_is_true">java_is_true</a><span class="src-sym">(</span><span class="src-num">1</span>==<span class="src-num">1</span><span class="src-sym">)&nbsp;</span>=&gt;&nbsp;<span class="src-id">true</span></div></li>
+</ol></div></p><p>Example: <div class="src-code"><ol><li><div class="src-line">&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_is_true">java_is_true</a><span class="src-sym">(</span><span class="src-id">java</span><span class="src-sym">(</span><span class="src-str">&quot;java.lang.System&quot;</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">getProperty</span><span class="src-sym">(</span><span class="src-str">&quot;foo&quot;</span><span class="src-sym">))</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> if the PHP or Java value is true.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">true</span>
+		<span class="method-name">
+			java_is_true
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: A Java object or a PHP value</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionjava_virtual" id="functionjava_virtual"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">java_virtual</span> (line <span class="line-number"><a href="../__filesource/fsource_java__JavaBridge.inc.html#a174">174</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Include the output of some Java resource.</p>
+<p class="description"><p>java_virtual() uses the PHP/Java Bridge protocol to render .jsp,  .jsf or other Java resources through PHP scripts running within  Apache, IIS or as a JEE sub component.</p><p>Example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-inc">require_once</span><span class="src-sym">(</span><span class="src-str">&quot;java/Java.inc&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<a href="../java/_JavaProxy.inc.html#functionjava_session">java_session</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;echo&nbsp;<a href="../java/_JavaBridge.inc.html#functionjava_virtual">java_virtual</a><span class="src-sym">(</span><span class="src-str">&quot;/test.jsp&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-id">true</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The response or true</li>
+				<li><span class="field">see:</span> java_session();</li>
+				<li><span class="field">see:</span> <a href="http://php.net/manual/en/function.virtual.php">http://php.net/manual/en/function.virtual.php</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			java_virtual
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$return</span> = <span class="var-default">false</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: The local resource</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$return</span><span class="var-description">: return the response</span>			</li>
+				</ul>
+		
+	
+</div>
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 31 Oct 2010 15:23:20 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

@@ -8,7 +8,7 @@ $navBar = '
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
-			<a class="brand" href="index.php"><h1>route<small>fiend</small></h1></a>
+			<a class="brand" style="  text-shadow: 1px 1px 2px #121212;" href="index.php"><h1>route<small>fiend</small></h1></a>
 			<div class="nav-collapse">
 				<ul class="nav">
 					<li class="">

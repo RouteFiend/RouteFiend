@@ -47,10 +47,7 @@ if (isset($_POST['sub_post']))
 		$output .= '<div class="well form-inline">
 		<div class="control-group">
 
-		<div class="controls">
-
-
-		';
+		<div class="controls">';
 		for ($e = 0;$e < $count; $e++) {
 			if($e != $v && $times[$v] == $times[$e]) {
 				$valid = false;
@@ -166,7 +163,7 @@ if (isset($_POST['sub_post'])){
 	<div class="container" id="get_cont">
 		<form method="POST" action="index.php?pa=2" autocomplete="off">
 			<fieldset>
-				<legend><h2 id="tadd">Add Intersections</h2></legend>
+				<legend><h2 id="tadd" style="text-shadow: 1px 1px 1px #121212;">Add Intersections</h2></legend>
 				<div id='main'>
 					<div class="alert alert-error fade in">
 						<a class="close" data-dismiss="alert">×</a>
@@ -181,6 +178,8 @@ if (isset($_POST['sub_post'])){
 						}
 
 						else {
+							$_SESSION['des'] = $_POST['intersection'];
+							$_SESSION['times'] = $_POST['time'];
 							$pa = 3;
 							$url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
 							if ((substr($url, -1) == '/r') OR (substr($url, -1)) == '\\') {
@@ -196,7 +195,7 @@ if (isset($_POST['sub_post'])){
 			<div class="container" id="get_cont">
 				<form method="POST" action="index.php?pa=2" autocomplete="off">
 					<fieldset>	
-						<legend><h2 id="tadd">Add Intersections </h2></legend>
+						<legend><h2 id="tadd" style="text-shadow: 2px 2px 1px #DBDBDB;">Add Intersections </h2></legend>
 						<div id="main">
 							<div class = "well form-inline">
 								<div class="control-group">

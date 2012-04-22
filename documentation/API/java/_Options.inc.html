@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page Options.inc</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/Options.inc</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+											<a href="#sec-constants">Constants</a>
+										</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Copyright (C) 2003-2007 Jost Boekemeier.</p>
+<p class="description"><p>Permission is hereby granted, free of charge, to any person  obtaining a copy of this file (the &quot;Software&quot;), to deal in the  Software without restriction, including without limitation the  rights to use, copy, modify, merge, publish, distribute,  sublicense, and/or sell copies of the Software, and to permit  persons to whom the Software is furnished to do so, subject to the  following conditions:</p><p>The above copyright notice and this permission notice shall be included in  all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL  THE COPYRIGHT HOLDER(S) OR AUTHOR(S) BE LIABLE FOR ANY CLAIM, DAMAGES OR  OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR  OTHER DEALINGS IN THE SOFTWARE.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Jost Boekemeier</li>
+				<li><span class="field">link:</span> <a href="http://php-java-bridge.sf.net">http://php-java-bridge.sf.net</a></li>
+				<li><span class="field">filesource:</span> <a href="../__filesource/fsource_java__Options.inc.html">Source Code for this file</a></li>
+				<li><span class="field">license:</span> GPL</li>
+			</ul>
+		
+			</div>
+</div>
+		
+
+	
+	<a name="sec-constants"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+									<span class="disabled">Constants</span>
+											</div>
+		<div class="info-box-body">	
+			<a name="defineJAVA_DEBUG"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">JAVA_DEBUG</span> = $java_ini
+			(line <span class="line-number"><a href="../__filesource/fsource_java__Options.inc.html#a149">149</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Debug mode for the client.</p>
+<p class="description"><p>This debug flag is for PHP only. To enable the VMBridge log restart  Java with the -Dphp.java.bridge.default_log_level=... option.</p></p>
+	
+		
+</div>
+<a name="defineJAVA_HOSTS"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">JAVA_HOSTS</span> = $java_ini
+			(line <span class="line-number"><a href="../__filesource/fsource_java__Options.inc.html#a76">76</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The address of the HTTP back end.</p>
+<p class="description"><p>For example &quot;127.0.0.1:8080&quot;</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../java/_Options.inc.html#defineJAVA_SERVLET">JAVA_SERVLET</a></li>
+			</ul>
+	
+		
+</div>
+<a name="defineJAVA_LOG_LEVEL"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">JAVA_LOG_LEVEL</span> = (int)$java_ini
+			(line <span class="line-number"><a href="../__filesource/fsource_java__Options.inc.html#a121">121</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The request log level between 0 (log off) and 4 (log debug).</p>
+<p class="description"><p>The  default request log level is initialized with the value from to the  Java system property &quot;php.java.bridge.default_log_level&quot;.  The  servlet's init-param: servlet_log_level (see WEB-INF/web.xml)  overrides this value. The default level is 2.</p></p>
+	
+		
+</div>
+<a name="defineJAVA_PEAR_VERSION"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">JAVA_PEAR_VERSION</span> = &quot;6.1&quot;
+			(line <span class="line-number"><a href="../__filesource/fsource_java__Options.inc.html#a60">60</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The version number of this PHP library.</p>
+	
+		
+</div>
+<a name="defineJAVA_PREFER_VALUES"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">JAVA_PREFER_VALUES</span> = $java_ini
+			(line <span class="line-number"><a href="../__filesource/fsource_java__Options.inc.html#a139">139</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set to 1 for compatibility with earlier versions.</p>
+<p class="description"><p>When this flag is set, a value (null, int, ...) is returned  immediately and java.lang.RuntimeException/java.lang.Error is  thrown as a normal PHP JavaException. Otherwise a proxy  (RuntimeExceptionErrorMarker, Request$PHPNULL, Integer,  Boolean, ...) is returned and PHP must fetch Java values using  java_values($proxy) or with (string)$proxy. java.lang.Exceptions are thrown as usual.  But java.lang.RuntimeException/Errors raise a warning and terminate the script with  a fatal PHP error, unless the error condition is fetched and cleared within the  current try/catch block using java_last_exception_get()/java_last_exception_clear().</p></p>
+	
+		
+</div>
+<a name="defineJAVA_RECV_SIZE"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">JAVA_RECV_SIZE</span> = 8192
+			(line <span class="line-number"><a href="../__filesource/fsource_java__Options.inc.html#a66">66</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineJAVA_SEND_SIZE"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">JAVA_SEND_SIZE</span> = 8192
+			(line <span class="line-number"><a href="../__filesource/fsource_java__Options.inc.html#a63">63</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+		
+</div>
+<a name="defineJAVA_SERVLET"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="const-title">
+			<span class="const-name">JAVA_SERVLET</span> = $java_ini
+			(line <span class="line-number"><a href="../__filesource/fsource_java__Options.inc.html#a108">108</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Rewrite rules for incoming HTTP requests.</p>
+<p class="description"><p>Used in conjunction with  JAVA_HOSTS and a servlet/JEE back end  <ul><li>&quot;On&quot; or 1; Hard-codes the context to &quot;JavaBridge&quot;:
+ http://foo.com/test.php =&gt; http://host1:port1/JavaBridge/test.phpjavabridge
+ cookie path: always &quot;/&quot;</li><li>&quot;bar/JavaBridge.phpjavabridge&quot;; Hard-codes the context to &quot;bar&quot;:
+ http://foo.com/test.php =&gt; http://host1:port1/bar/test.phpjavabridge
+ cookie path: always &quot;/&quot;</li><li>&quot;User&quot;; Separates different web apps:
+ http://foo.com/mApp1/test.php =&gt; http://host1:port1/mApp1/test.phpjavabridge
+ cookie path: /mApp1
+ http://foo.com/mApp2/test.php =&gt; http://host1:port1/mApp2/test.phpjavabridge
+ cookie path: /mApp2</li><li>&quot;Off&quot; or 0 doesn't use a web context at all (no cookies are generated, no
+ PHP/Java session sharing). Back-end must have been started with
+ INET:PORT or INET_LOCAL:PORT, no Servlet engine, no JEE server.</li></ul></p></p>
+	
+		
+</div>
+		</div>
+	</div>
+	
+	
+	
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 31 Oct 2010 15:23:27 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
