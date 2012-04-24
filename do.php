@@ -48,8 +48,6 @@ $newTimes = array();
 foreach($times as $time) {
 $newTimes[] = $time.":00";
 }
-//echo "<br>";
-//print_r($newTimes);
 
 $world = new java("routefiend.RoutingTest");
 $world->init();
@@ -61,18 +59,12 @@ if (in_array(-1, $dump))
 	echo "NOT POSSIBLE!";
 }
 else {
-	//echo "# Destinations <br>";
-	//print_r($intersections);
-	//echo "# The route the java gives back <br>";
-	//print_r($dump);	
-	//echo "<br>";
-	//print_r(java_values($dump));
+
 	$routeNum = 0;
 	$desGone = array();
 	for($i = 0; $i <count($des); $i++){
 		$desGone[$i] = 0;
 	}
-//echo count($desGone);
 	$uDes = array_unique($des);
 
 	$dessy = array();
@@ -82,28 +74,16 @@ else {
 		$dessyCount[$des[$e]] = 1;
 
 	}
-/*
-for($i=0;$i < count($dump); $i++) {
-	for($d=0;$d < count($des); $d++) {
-		if ($dump[$i] == $des[$d]) {
-			$dessy[$dump[$i]]++;
-		}
-	}
-}
-*/
-//print_r($uDes);
+
 	for ($i=0;$i < count($des); $i++) {
 		for($d=0;$d < count($dump);$d++){
-			//echo $i."-".$d."_".$uDes[$i]."~".$dump[$d]."<---- <br>";
 			if($uDes[$i] == $dump[$d]){
-					//echo "<br>".$dump[$d]."<br>";
 
 				$dessy[$uDes[$i]]++;
 			}
 		}
 	}
 
-//	print_r($dessy);
 	$forPrint = "";
 
 	$forPrint .= "    <table class='table table-striped table-bordered' style='margin-top:20px;	'>
@@ -121,9 +101,11 @@ for($i=0;$i < count($dump); $i++) {
 		$forPrint .= "<tr>";
 		if((in_array($dump[$i], $des)) && $dump[$i] != $dump[0] && $dump[$i] != $dump[count($dump)-1]) {
 			$forPrint .= "<td><i class='icon-map-marker' style='font-size:20px;'></i> <b style='font-size:10px;'>Waypoint</b></td>";
+			$isDes = true;
 		}
 		elseif($i != 0 && $i != count($dump)-1 ) {
 			$forPrint .=  "<td><i class='icon-road' style='font-size:20px;'></i></td>";
+			$isDes=false;
 			$isWaypoint = true;
 
 		}
@@ -150,7 +132,6 @@ for($i=0;$i < count($dump); $i++) {
 		$qq = $dump[$i+1];
 		$q2 = "SELECT Street1, Street2, Street3, Street4 FROM Intersections WHERE id='$qq'";				
 		$r2 = mysql_query($q2);
-		//print_r($result);
 		$ff = array();
 		$ss = array();
 		$row = mysql_fetch_array($result,MYSQL_NUM);
@@ -170,10 +151,8 @@ for($i=0;$i < count($dump); $i++) {
 		elseif($i == count($dump)-1) {
 			$forPrint .= "<td style='border-left:none;'></td>";
 		}
-				if(!$i == 0 && $i != count($dump)-1) {
+		if(!$i == 0 && $i != count($dump)-1) {
 			$bool = $dump[$i] == $dump[0];
-			//echo ">>".$dump[$i]."=".$dump[0]."<<";
-		//	echo $bool;
 			if((in_array($dump[$i], $des)) && $dump[$i] != $dump[0] && $dump[$i] != $dump[count($dump)-1]) {
 				if ($dessy[$dump[$i]] == 1 ) {
 				}
@@ -184,7 +163,7 @@ for($i=0;$i < count($dump); $i++) {
 			}
 
 		}
-		if($isWaypoint) {
+		if($isWaypoint || $isDes) {
 			$forPrint .= "<td></td>";
 		}
 		$forPrint .=  "</tr>";
@@ -198,7 +177,7 @@ echo '		<div class="form-actions">
 							
 							<a class="btn btn-primary"><i class="icon-list-alt"></i> View Stats</a>
 							<a class="btn btn-inverse" href="print.php"><i class="icon-print"></i> Print </a>
-							<a class="btn"><i class="icon-refresh" href="index.php"></i> Start again</a>
+							<a class="btn" href="index.php"><i class="icon-refresh"></i> Start again</a>
 						</div>';
 }
 echo "</div>";
